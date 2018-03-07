@@ -20,6 +20,7 @@ export function dispatch(action){
 
 export function render(){
   let container = document.getElementById("container")
-  container.innerHTML = `<ul><li>Splash</li></ul>`
+  let pets = state.pets.map(pet => {return `<li>${pet.name}</li>`})
+  container.innerHTML = `<ul>${pets}</ul>`
   document.innerHTML = container
 }
