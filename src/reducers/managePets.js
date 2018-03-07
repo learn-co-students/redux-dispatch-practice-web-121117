@@ -19,7 +19,6 @@ export function dispatch(action){
 
 export function render(){
   let container = document.getElementById('container')
-  let ul = document.createElement('ul')
   state.pets.map(pet => {
     return (
       container.innerHTML = (`<ul><li>${pet.name}</li></ul>`)
