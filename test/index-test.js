@@ -31,37 +31,37 @@ describe('managePets reducer', function() {
   })
 })
 
-describe('dispatch', function(){
-
-  it('declares the state variable in the global scope and exports the state, and calls the reducer', function(){
-    // you are exporting the state for the purposes of the test only
-    global.document = jsdom.jsdom('<html><body><div id="container"></div></body></html>');
-    expect(state).toEqual(undefined)
-    dispatch({type: "@@INIT"})
-    expect(state).toEqual({pets: []})
-  })
-})
-
-describe('render', function(){
-  it('displays the state on the html', function(){
-    global.document = jsdom.jsdom('<html><body><div id="container"></div></body></html>');
-    dispatch({type: 'ADD_PET', pet: {name: 'Splash', species: 'Turtle', id: 100}})
-    render()
-    let container = document.getElementById('container')
-    expect(container.innerHTML).toEqual('<ul><li>Splash</li></ul>')
-  })
-})
-
-describe('dispatch with render', function(){
-  it('calls the render function which displays the updated html', function(){
-    // need to reload the managePets file to reset the state variable.
-      delete require.cache[require.resolve('../src/reducers/managePets')];
-      let reducer = require('../src/reducers/managePets');
-
-    global.document = jsdom.jsdom('<html><body><div id="container"></div></body></html>');
-
-    reducer.dispatch({type: 'ADD_PET', pet: {name: 'Splash', species: 'Turtle', id: 100}})
-    let container = document.getElementById('container')
-    expect(container.innerHTML).toEqual('<ul><li>Splash</li></ul>')
-  })
-})
+// describe('dispatch', function(){
+//
+//   it('declares the state variable in the global scope and exports the state, and calls the reducer', function(){
+//     // you are exporting the state for the purposes of the test only
+//     global.document = jsdom.jsdom('<html><body><div id="container"></div></body></html>');
+//     expect(state).toEqual(undefined)
+//     dispatch({type: "@@INIT"})
+//     expect(state).toEqual({pets: []})
+//   })
+// })
+//
+// describe('render', function(){
+//   it('displays the state on the html', function(){
+//     global.document = jsdom.jsdom('<html><body><div id="container"></div></body></html>');
+//     dispatch({type: 'ADD_PET', pet: {name: 'Splash', species: 'Turtle', id: 100}})
+//     render()
+//     let container = document.getElementById('container')
+//     expect(container.innerHTML).toEqual('<ul><li>Splash</li></ul>')
+//   })
+// })
+//
+// describe('dispatch with render', function(){
+//   it('calls the render function which displays the updated html', function(){
+//     // need to reload the managePets file to reset the state variable.
+//       delete require.cache[require.resolve('../src/reducers/managePets')];
+//       let reducer = require('../src/reducers/managePets');
+//
+//     global.document = jsdom.jsdom('<html><body><div id="container"></div></body></html>');
+//
+//     reducer.dispatch({type: 'ADD_PET', pet: {name: 'Splash', species: 'Turtle', id: 100}})
+//     let container = document.getElementById('container')
+//     expect(container.innerHTML).toEqual('<ul><li>Splash</li></ul>')
+//   })
+// })
